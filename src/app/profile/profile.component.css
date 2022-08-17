@@ -1,0 +1,21 @@
+#profile
+{
+    min-height: 100vh;
+    background-color:rgba(45, 181, 190, 0.7);
+      font-family:'Times New Roman', Times, serif;
+}
+button,i
+{
+    float: right;
+}
+.note
+{
+    background-color: rgb(189, 205, 216);
+    min-height: 200px;
+    width: 250px;
+    border-radius: 10px;
+}
+i{
+    cursor: pointer;
+}
+

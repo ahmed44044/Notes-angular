@@ -1,0 +1,12 @@
+#signUp
+{
+    min-height: 100vh;
+    background-color: rgb(50, 43, 53);
+}
+.form
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

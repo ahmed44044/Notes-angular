@@ -1,0 +1,67 @@
+<section id="signUp">
+    <div class="container">
+        <div class="form w-50 m-auto">
+
+        <form [formGroup]="registerForm" (ngSubmit)="signUp(registerForm)" >
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control p-1" formControlName="first_name" placeholder="Enter your first name">
+                    <p *ngIf="registerForm.controls['first_name']?.errors?.['required'] && registerForm.controls['first_name']?.touched "
+                    class="text-danger">please fill this fieled</p>
+            
+                    <p *ngIf="registerForm.controls['first_name']?.errors?.['minlength'] && registerForm.controls['first_name']?.touched " 
+                    class="text-danger">first name must be at least 3 chars</p>
+            
+                    <p *ngIf="registerForm.controls['first_name']?.errors?.['maxlength'] && registerForm.controls['first_name']?.touched " 
+                    class="text-danger">first name must be 10 chars</p>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control p-1" formControlName="last_name" placeholder="Enter your last name">
+                    <p *ngIf="registerForm.controls['last_name']?.errors?.['required'] && registerForm.controls['last_name']?.touched "
+                    class="text-danger">please fill this fieled</p>
+                
+                    <p *ngIf="registerForm.controls['last_name']?.errors?.['minlength'] && registerForm.controls['last_name']?.touched " 
+                    class="text-danger">last name must be at least 3 chars</p>
+                
+                    <p *ngIf="registerForm.controls['last_name']?.errors?.['maxlength'] && registerForm.controls['last_name']?.touched " 
+                    class="text-danger">last name must be 10 chars</p>
+                </div>
+            </div>
+            <input type="email" class="form-control p-1 my-3" formControlName="email" placeholder="Enter your email">
+            <p *ngIf="registerForm.controls['email']?.errors?.['required'] && registerForm.controls['email']?.touched "
+    class="text-danger">please fill this fieled</p>
+
+    <p *ngIf="registerForm.controls['email']?.errors?.['email'] && registerForm.controls['email']?.touched " 
+    class="text-danger">your email must be write by method 'AhmedMAhmoud112@gmail.com'</p>
+
+            <input type="number" class="form-control p-1 " formControlName="age" placeholder="Enter your age">
+            <p *ngIf="registerForm.controls['age']?.errors?.['required'] && registerForm.controls['age']?.touched "
+            class="text-danger">please fill this fieled</p>
+        
+            <p *ngIf="registerForm.controls['age']?.errors?.['min'] && registerForm.controls['age']?.touched " 
+            class="text-danger">your age must be greater than 15 </p>
+        
+            <p *ngIf="registerForm.controls['age']?.errors?.['max'] && registerForm.controls['age']?.touched " 
+            class="text-danger">your age must be 100 </p>
+            <input type="password" class="form-control p-1 my-3" formControlName="password" placeholder="Enter your password">
+            <p *ngIf="registerForm.controls['password']?.errors?.['required'] && registerForm.controls['password']?.touched "
+            class="text-danger">please fill this fieled</p>
+        
+            <p *ngIf="registerForm.controls['password']?.errors?.['minlength'] && registerForm.controls['password']?.touched " 
+            class="text-danger">password name must be at least 3</p>
+        
+            <p *ngIf="registerForm.controls['password']?.errors?.['maxlength'] && registerForm.controls['password']?.touched " 
+            class="text-danger">password name must be 12</p>
+            <p *ngIf="registerForm.controls['password']?.errors?.['pattern'] && registerForm.controls['password']?.touched " 
+            class="text-danger">password must be start with a number from 0 to 9 </p>
+        
+            <button [disabled]="registerForm.invalid" class="btn btn-info w-100 p-1" type="submit"> 
+                <span *ngIf="!isRegister" >sign up</span> 
+                <span *ngIf="isRegister" >Waitting..</span> 
+            </button>
+            <p *ngIf="isRegister" class="text-success fs-3 text-center">success.......</p>
+            <p *ngIf="!isRegister" class="text-danger fs-3 text-center">{{apiData}}</p>
+        </form>
+    </div>
+    </div>
+</section>

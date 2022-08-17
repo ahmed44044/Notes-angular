@@ -1,0 +1,35 @@
+<section id="signIn">
+    <div class="container">
+        <div class="form w-50 m-auto">
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()" >
+           
+            <input type="email" class="form-control p-1 my-3" formControlName="email" placeholder="Enter your email">
+            <p *ngIf="loginForm.controls['email']?.errors?.['required'] && loginForm.controls['email']?.touched "
+    class="text-danger">please fill this fieled</p>
+
+    <p *ngIf="loginForm.controls['email']?.errors?.['email'] && loginForm.controls['email']?.touched " 
+    class="text-danger">your email must be write by method 'AhmedMAhmoud112@gmail.com'</p>
+
+            <input type="password" class="form-control p-1 my-3" formControlName="password" placeholder="Enter your password">
+            <p *ngIf="loginForm.controls['password']?.errors?.['required'] && loginForm.controls['password']?.touched "
+            class="text-danger">please fill this fieled</p>
+        
+            <p *ngIf="loginForm.controls['password']?.errors?.['minlength'] && loginForm.controls['password']?.touched " 
+            class="text-danger">password name must be at least 3</p>
+        
+            <p *ngIf="loginForm.controls['password']?.errors?.['maxlength'] && loginForm.controls['password']?.touched " 
+            class="text-danger">password name must be 12</p>
+            <p *ngIf="loginForm.controls['password']?.errors?.['pattern'] && loginForm.controls['password']?.touched " 
+            class="text-danger">password must be start with a number from 0 to 9 </p>
+        
+            <button class="btn btn-info w-100 p-1" type="submit"> 
+                <span>sign in</span> 
+            
+            </button>
+            
+        </form>
+    </div>
+    </div>
+</section>
+
